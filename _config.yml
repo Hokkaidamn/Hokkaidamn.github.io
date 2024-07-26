@@ -1,32 +1,20 @@
 title: Hokkaido # 站点标题
 description: | # 头像背后的信息（html格式），<br/>代表换行
-  <a href="mailto:site@wu-kan.cn">
+  <a href="mailto:hokkaidonoghibli@gmail.com">
     <i class="fa-solid fa-envelope"></i>
   </a>
   <a href="https://github.com/wu-kan">
     <i class="fa-brands fa-github"></i>
   </a>
-  <a href="https://scholar.google.com/citations?user=aU9P37UAAAAJ">
-    <i class="fa-brands fa-google-scholar"></i>
-  </a>
-  <a href="https://orcid.org/0009-0008-5828-847X">
-    <i class="fa-brands fa-orcid"></i>
-  </a>
-  <a href="https://vjudge.net/user/WuK">
-    <i class="fa-solid fa-smile"></i>
-  </a>
-  <a href="https://space.bilibili.com/166390020">
-    <i class="fa-brands fa-bilibili"></i>
-  </a>
-  <a href="https://www.zhihu.com/people/wukan0621">
-    <i class="fa-brands fa-zhihu"></i>
+  <a href="https://app.hackthebox.com/profile/overview">
+    <i class="fa-solid fa-box-open"></i>
   </a>
   <br/>
-  水野爱、佐贺偶像是传奇、吹响吧！上低音号、FGO、以及我的黑柴犬吴豆豆
+   Hacker wannabe, very casual bug bounty hunter. 
   <br/>
-  「奏でろ 荒ぶる魂」
+   I used to code applications, now I break them.
   <br/>
-  “我的灵魂奏出绝响”
+ 
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/assets`前也要加，即`/your_baseurl/assets`。这一项结尾不要有'/'。
 
 defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/front-matter-defaults/>功能进行配置
@@ -83,7 +71,7 @@ defaults: # 将所有配置选项使用<https://jekyllrb.com/docs/configuration/
                 </style>
                 <input
                   id="sidebar-search-input"
-                  placeholder="搜索博文"
+                  placeholder="Search"
                 />
                 <ol
                   id="sidebar-search-results-container"
