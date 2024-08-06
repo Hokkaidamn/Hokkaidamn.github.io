@@ -4,7 +4,8 @@ tags:
   - Bug Bounty
 ---
 
-The other day I came across an Admirer portal while doing some subdomain enumerations in a bug bounty program.
+
+The other day I came across an Adminer portal while doing some subdomain enumerations in a bug bounty program.
 
 
 ![portal.png](https://ptyhokkaido.github.io/assets/images/adminer-ssrf-portal.png)
@@ -15,10 +16,11 @@ The other day I came across an Admirer portal while doing some subdomain enumera
 >Adminer (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Conversely to [phpMyAdmin], it consists of a single file ready to deploy to the target >server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB and others via plugin.
 
 
-Took me few minutes of googling to know that the software version running has CVEs assigned, would they be patched on this instance tho? lets give it a try.
+Took me few minutes of googling to know that the software version running has CVEs assigned, will they be patched on this instance tho? lets give it a try.
 
 
 ## Setting up the enviroment
+
 
 Now that I think of it I could have done it with help of a collaborator and call it a day but I went for the good old and reliable ngrok, I also had to use a python script so my ngrok would redirect the petition and trick the server into "hitting" itself.
 
@@ -83,10 +85,12 @@ if __name__ == "__main__":
 
 
 
-I simply redirected the requests that Im gonna receive on my ngrok to the victim web server, port 443, whichs the Admirer portal itself in this case. If it worked we'd be able to reach the Admirer portal as if we were doing it from localhost.
+I simply redirected the requests that Im gonna receive on my ngrok to the victim web server, port 443, whichs the Adminer portal itself in this case. If it worked we'd be able to reach the Adminer portal as if we were doing it from localhost.
 
 
 ## Results
+
+After all the setup and putting our ngrok as a Server in the form we obtain the following.
 
 We can appreciate in the output that we indeed reached the portal from inside, giving us access to internal services such as the "DEV version..".
 
