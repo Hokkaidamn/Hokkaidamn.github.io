@@ -6,7 +6,7 @@
 
 ## Recent Activity
 
-- [Testing first post](https://ptyhokkaido.github.io/2024/07/26/testing/)
+- [Adminer SSRF](https://ptyhokkaido.github.io/2024/08/06/Adminer-SSRF-in-the-wild/)
 
 
 <!-- .slide vertical=true -->

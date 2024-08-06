@@ -4,23 +4,31 @@ tags:
   - Bug Bounty
 ---
 
-Came across an Admirer portal while doing some subdomain enumerations in a bug bounty program.
+The other day I came across an Admirer portal while doing some subdomain enumerations in a bug bounty program.
 
-![portal.png](https://Mizuno-Ai.wu-kan.cn/assets/image/2021/05/20/1tvAo2I9FK6sVLP.jpg)
 
-    What is Adminer?
+![portal.png](https://ptyhokkaido.github.io/assets/images/adminer-ssrf-portal.png)
 
-    Adminer (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Conversely to [phpMyAdmin], it consists of a single file ready to deploy to the target server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB and others via plugin.
+
+> What is Adminer?
+
+>Adminer (formerly phpMinAdmin) is a full-featured database management tool written in PHP. Conversely to [phpMyAdmin], it consists of a single file ready to deploy to the target >server. Adminer is available for MySQL, MariaDB, PostgreSQL, SQLite, MS SQL, Oracle, Elasticsearch, MongoDB and others via plugin.
+
 
 Took me few minutes of googling to know that the software version running has CVEs assigned, would they be patched on this instance tho? lets give it a try.
 
-##Setting up the enviroment
+
+## Setting up the enviroment
 
 Now that I think of it I could have done it with help of a collaborator and call it a day but I went for the good old and reliable ngrok, I also had to use a python script so my ngrok would redirect the petition and trick the server into "hitting" itself.
 
-![setup.png](https://Mizuno-Ai.wu-kan.cn/assets/image/2021/05/20/1tvAo2I9FK6sVLP.jpg)
 
-There we've the content of the script.
+![setup.png](https://ptyhokkaido.github.io/assets/images/adminer-ssrf-setup.png)
+
+
+Here we've the content of the script.
+
+
 
 ```cpp
 #!/usr/bin/env python
@@ -72,12 +80,16 @@ if __name__ == "__main__":
     main()
 ```
 
+
+
+
 I simply redirected the requests that Im gonna receive on my ngrok to the victim web server, port 443, whichs the Admirer portal itself in this case. If it worked we'd be able to reach the Admirer portal as if we were doing it from localhost.
 
-##Results
+
+## Results
 
 We can appreciate in the output that we indeed reached the portal from inside, giving us access to internal services such as the "DEV version..".
 
 Not only that we could use this to scan the internal network, search for some internal APIs and escalate the impact, maybe even just check for AWS credentials trying to reach http://169.254.169.254/latest/meta-data/instance-id if the victim had the service hosted on Amazon.
 
-![localhost.png](https://Mizuno-Ai.wu-kan.cn/assets/image/2021/05/20/1tvAo2I9FK6sVLP.jpg)
+![localhost.png](https://ptyhokkaido.github.io/assets/images/adminer-ssrf-localhost.png)
